@@ -34,11 +34,7 @@ TRAIN_PATH = os.path.join(DATA_DIR, "train.csv")
 TEST_PATH  = os.path.join(DATA_DIR, "test.csv")
 TARGET_COL = "passed"
 
-dagshub.init(
-    repo_owner="firmansyahagung239",
-    repo_name="Eksperimen_SML_Agung-Firmansyah",
-    mlflow=True
-)
+mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
 
 def load_data():
     train = pd.read_csv(TRAIN_PATH)
